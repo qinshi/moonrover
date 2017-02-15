@@ -1,7 +1,7 @@
 package com.moonrover
 
 object Config {
-  val isDebug = true
+  val isDebug = false
 
   //ground controller center start delay
   val GGCDelayInMs = 0
