@@ -30,7 +30,7 @@ class LocationCalculator extends Runnable {
       report += ":report time = " + reportTime
       report += ",locationX = " + metrics.locationX
       report += ",locationY = " + metrics.locationY
-      val fixedDirection = metrics.direction + Env.groundControlCenter.fixedDirectMap(id)
+      val fixedDirection = metrics.direction - Env.groundControlCenter.fixedDirectMap(id)
       report += ",direction = " + fixedDirection
       report += ",speed = " + metrics.speed
 

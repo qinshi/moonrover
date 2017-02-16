@@ -20,7 +20,7 @@ object FileUtil {
       while (timestamp < 1000000) {
         locationX = Math.cos(direction * Math.PI / 180) * speed  + locationX
         locationY = Math.sin(direction * Math.PI / 180) * speed  + locationY
-        direction = direction + fixDirection
+        direction = direction - fixDirection
 
         fixDirection = 0
         speed = speed + Random.nextInt() % 2
