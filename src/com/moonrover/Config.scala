@@ -3,6 +3,9 @@ package com.moonrover
 object Config {
   val isDebug = false
 
+  //设置为false时执行仿真，设置为true时随机生成月球车的移动路径
+  val createFile = false
+
   //ground controller center start delay
   val GGCDelayInMs = 0
 

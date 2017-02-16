@@ -10,6 +10,7 @@ import com.moonrover.rover.Rover
 /**
  * Created by qinshi on 17/2/12.
  */
+//地面站结果打印类
 class LocationCalculator extends Runnable {
 
   override def run(): Unit = {
@@ -19,13 +20,14 @@ class LocationCalculator extends Runnable {
 
     val now = new Date()
     val diffTime = now.getTime - Env.groundControlCenter.startTS
-    println("GGC report===============================")
+    println("GGC report, current time = " + diffTime + "===============================")
 
     for ((id, metrics) <- Env.groundControlCenter.cycleMetricsMap) {
       val roverTimeDiff = diffTime - metrics.timestamp - metrics.delay
 
       var report = "rover " + id
-      report += ":report time = " + metrics.timestamp
+      var reportTime = metrics.timestamp + metrics.delay
+      report += ":report time = " + reportTime
       report += ",locationX = " + metrics.locationX
       report += ",locationY = " + metrics.locationY
       val fixedDirection = metrics.direction + Env.groundControlCenter.fixedDirectMap(id)

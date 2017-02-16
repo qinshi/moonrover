@@ -11,6 +11,7 @@ import scala.collection.mutable.ArrayBuffer
 /**
  * Created by qinshi on 17/2/12.
  */
+//月球车定时线程，实现信息上报
 class ReportCalculator extends Runnable {
   var rover:Rover = null
 
@@ -26,11 +27,7 @@ class ReportCalculator extends Runnable {
 
     val reportMetrics = rover.getNextMetrics()
     for (metrics<-reportMetrics) {
-      val delay = metrics.timestamp - rover.runningSec * 1000
-
-      if (delay < 0 || delay > 1000) {
-        println("[ERROR]delay in wrong range, delay = " + delay)
-      }
+      val delay = metrics.timestamp % 1000
 
       if (delay == 0) {
         Env.channel.reportMetrics(metrics)

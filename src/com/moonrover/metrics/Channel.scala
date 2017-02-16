@@ -4,7 +4,7 @@ import java.util.{TimerTask, Timer}
 
 import com.moonrover.Env
 
-//information channel
+//模拟信道，实现2秒的延迟
 class Channel {
   def reportMetrics(metrics: BaseMetrics): Unit = {
     val timer:Timer = new Timer()

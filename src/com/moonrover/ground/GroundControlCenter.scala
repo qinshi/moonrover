@@ -12,6 +12,8 @@ import scala.collection.mutable
 /**
  * Created by qinshi on 17/2/12.
  */
+
+//地面控制类
 class GroundControlCenter {
 
   val cycleMetricsMap = new mutable.HashMap[String, CycleMetrics]
@@ -21,6 +23,7 @@ class GroundControlCenter {
   var startTS:Long = 0
 
 
+  //接受上报数据
   def reportMetrics(metrics:BaseMetrics): Unit = {
     if (metrics.isInstanceOf[CycleMetrics]) {
       if(Config.isDebug) {
@@ -40,6 +43,7 @@ class GroundControlCenter {
     }
   }
 
+  //启动地面控制器，主要是启动一个线程打印结果
   def start(): Unit = {
     if(Config.isDebug) {
       println("start GGC...")
